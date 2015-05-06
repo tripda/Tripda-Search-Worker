@@ -4,7 +4,6 @@ The Tripda Search Worker has the RabbitMQ consumers to do create, update and del
 
 ## Requirements
 - Ruby 1.9.3 >
-- Redis
 - Tripda-Search-Box
 
 ## Dependencies
@@ -35,6 +34,8 @@ Enter into repository root and execute the command below:
 ## Workers
 ruby application.rb
 
+## Application
+Change config.dist.yml to config.yml
 
 ## How to create a message
 Access the rabbitmq panel: http://192.168.33.20:15672/

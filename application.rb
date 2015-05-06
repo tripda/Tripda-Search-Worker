@@ -8,7 +8,7 @@ require 'requester/http_client'
 require 'yaml'
 require 'faraday'
 
-config = YAML.load_file("config/config.dist.yml")
+config = YAML.load_file("config/config.yml")
 opts = {
     :amqp => config['sneakers.config.amqp'],
     :vhost => config['sneakers.config.vhost'],

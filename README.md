@@ -32,7 +32,10 @@ Enter into repository root and execute the command below:
 - sudo service rabbitmq-server restart
 
 ## Workers
-ruby application.rb
+- ruby search_worker.rb start
+- ruby search_worker.rb stop
+- ruby search_worker.rb run
+- ruby search_worker.rb status
 
 ## Application
 Change config.dist.yml to config.yml

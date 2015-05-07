@@ -1,17 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.8)
     amq-protocol (1.9.2)
     bunny (1.7.0)
       amq-protocol (>= 1.9.2)
-    crack (0.4.2)
-      safe_yaml (~> 1.0.0)
+    daemons (1.2.2)
     diff-lcs (1.2.5)
     elasticsearch-api (1.0.7)
       multi_json
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     json (1.8.2)
     multi_json (1.11.0)
+    multipart-post (2.0.0)
     redis (3.2.1)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
@@ -26,7 +27,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    safe_yaml (1.0.4)
     serverengine (1.5.10)
       sigdump (~> 0.2.2)
     sigdump (0.2.2)
@@ -37,17 +37,15 @@ GEM
       thread (~> 0.1.7)
     thor (0.19.1)
     thread (0.1.7)
-    webmock (1.21.0)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  daemons
   elasticsearch-api
+  faraday
   json
   redis
   rspec
   sneakers
-  webmock

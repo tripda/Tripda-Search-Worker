@@ -28,23 +28,13 @@ WORKER_OPTIONS = {
     :heartbeat => 1
 }
 
-request = HttpClient.new(::Faraday::Connection.new url:config['elastisearch.host'])
-request.method = config['consumer.create.elasticsearch.method']
-request.path = config['consumer.create.elasticsearch.path']
+http_client = HttpClient.new(::Faraday::Connection.new url:config['elastisearch.host'])
+http_client.method = config['consumer.create.elasticsearch.method']
+http_client.path = config['consumer.create.elasticsearch.path']
 
-CreateConsumer.requester = request
-CreateConsumer.from_queue config['consumer.create.queue'],
+create_consumer = CreateConsumer.new http_client
+create_consumer.from_queue config['consumer.create.queue'],
                           WORKER_OPTIONS.merge(:exchange => config['consumer.create.exchange'])
 
-#
-# UpdateConsumer.requester request
-# UpdateConsumer.from_queue config['consumer.create.update'],
-#                           WORKER_OPTIONS.merge(:exchange => config['consumer.update.exchange'])
-#
-# DeleteConsumer.requester request
-# DeleteConsumer.from_queue config['consumer.delete.queue'],
-#                           WORKER_OPTIONS.merge(:exchange => config['consumer.delete.exchange'])
-
-
-r = Sneakers::Runner.new([CreateConsumer])
-r.run
+worker_runner = Sneakers::Runner.new([CreateConsumer])
+worker_runner.run

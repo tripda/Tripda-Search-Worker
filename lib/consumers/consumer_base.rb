@@ -3,14 +3,8 @@ require 'sneakers'
 class ConsumerBase
   include Sneakers::Worker
 
-  @@requester = nil
-
-  def ConsumerBase.requester= (request)
-    @@requester = request
-  end
-
-  def ConsumerBase.requester
-    return @@requester
+  def initialize(http_client)
+    @http_client = http_client
   end
 
   def work(msg)

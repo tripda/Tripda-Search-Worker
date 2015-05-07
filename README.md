@@ -1,4 +1,4 @@
-# Tripida Search Worker
+# Tripda Search Worker
 
 The Tripda Search Worker has the RabbitMQ consumers to do create, update and delete actions into ElasticSearch. Its core was written using ruby programming language and Sneakers framework.
 

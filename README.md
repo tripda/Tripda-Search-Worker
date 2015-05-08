@@ -1,10 +1,9 @@
-# Tripida Search Worker
+# Tripda Search Worker
 
 The Tripda Search Worker has the RabbitMQ consumers to do create, update and delete actions into ElasticSearch. Its core was written using ruby programming language and Sneakers framework.
 
 ## Requirements
 - Ruby 1.9.3 >
-- Redis
 - Tripda-Search-Box
 
 ## Dependencies
@@ -38,6 +37,9 @@ Enter into repository root and execute the command below:
 - ruby search_worker.rb stop
 - ruby search_worker.rb run
 - ruby search_worker.rb status
+
+## Application
+Change config.dist.yml to config.yml
 
 ## How to create a message
 Access the rabbitmq panel: http://192.168.33.20:15672/

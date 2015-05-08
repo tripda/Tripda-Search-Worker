@@ -1,0 +1,17 @@
+sneakers.config.amqp: 'amqp://test:test@localhost:5672'
+sneakers.config.vhost: '/trip'
+sneakers.config.exchange_type: :direct
+sneakers.config.workers: 1
+elastisearch.host: 'http://localhost:9200'
+consumer.create.queue: 'tripda.trip.create'
+consumer.create.exchange: 'tripda.trip.direct'
+consumer.create.elasticsearch.method: 'post'
+consumer.create.elasticsearch.path: 'trip'
+consumer.update.queue: 'tripda.trip.update'
+consumer.update.exchange: 'tripda.trip.direct'
+consumer.update.elasticsearch.method: 'put'
+consumer.update.elasticsearch.path: 'trip'
+consumer.delete.queue: 'tripda.trip.delete'
+consumer.delete.exchange: 'tripda.trip.direct'
+consumer.delete.elasticsearch.method: 'delete'
+consumer.delete.elasticsearch.path: 'trip/'

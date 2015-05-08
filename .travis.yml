@@ -2,3 +2,16 @@ language: ruby
 sudo: required
 rvm:
   - 1.9.3
+services:
+  - rabbitmq
+install:
+  - sudo rabbitmqctl add_user test test
+  - sudo rabbitmqctl set_user_tags test administrator
+  - sudo rabbitmqctl add_vhost /trip
+  - sudo rabbitmqctl set_permissions -p /trip test "." "." ".*"
+  - sudo service rabbitmq-server restart
+before_script:
+  - sudo gem install sneakers
+  - sudo gem install bundler
+  - bundler install
+script: rspec spec

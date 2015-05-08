@@ -4,6 +4,8 @@ rvm:
   - 1.9.3
 services:
   - rabbitmq
+before_install:
+  - sudo gem install bundler -v '= 1.9.6'
 install:
   - sudo rabbitmqctl add_user test test
   - sudo rabbitmqctl set_user_tags test administrator
@@ -12,6 +14,5 @@ install:
   - sudo service rabbitmq-server restart
 before_script:
   - sudo gem install sneakers
-  - sudo gem install bundler
   - bundler install
 script: rspec spec

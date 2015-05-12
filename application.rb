@@ -4,7 +4,7 @@ require 'sneakers/runner'
 require 'consumers/create_consumer'
 require 'yaml'
 
-config = YAML.load_file("config/config.yml")
+config = YAML.load_file(File.dirname(__FILE__)+"/config/config.yml")
 opts = {
     :amqp => config['sneakers.config.amqp'],
     :vhost => config['sneakers.config.vhost'],
